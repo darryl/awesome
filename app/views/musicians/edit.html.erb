@@ -1,0 +1,32 @@
+<div style="float: right">
+<h3>mixes <%= link_to '(new)', new_mix_url() %> </h3>
+<ul>
+<% @musician.mixes.each {|m| %>
+<li><%= link_to m.name, edit_mix_url(m) %></li>
+<% } %>
+</ul>
+
+<h3>samples </h3>
+<ul>
+<% @musician.samples.each {|s| %>
+<li><%= link_to s.name, edit_sample_url(s) %></li>
+<% } %>
+</ul>
+
+<h3> library </h3>
+<ul>
+<% @musician.library.samples.each {|s| %>
+<li><%= link_to s.name, edit_sample_url(s )%></li>
+<% } %>
+</ul>
+</div>
+
+<h1>Editing musician</h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Show', @musician %> |
+<%= link_to 'Back', musicians_path %>
+
+<h2> add sample </h2>
+<%= render :partial => 'samples/form', :locals => { :sample => @sample } %>

@@ -1,0 +1,27 @@
+<h1>Listing importages</h1>
+
+<table>
+  <tr>
+    <th>Mix</th>
+    <th>Sample</th>
+    <th>Simple volume</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @importages.each do |importage| %>
+  <tr>
+    <td><%= importage.mix_id %></td>
+    <td><%= importage.sample_id %></td>
+    <td><%= importage.simple_volume %></td>
+    <td><%= link_to 'Show', importage %></td>
+    <td><%= link_to 'Edit', edit_importage_path(importage) %></td>
+    <td><%= link_to 'Destroy', importage, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Importage', new_importage_path %>

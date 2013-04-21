@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Mix:</b>
+  <%= @importage.mix_id %>
+</p>
+
+<p>
+  <b>Sample:</b>
+  <%= @importage.sample_id %>
+</p>
+
+<p>
+  <b>Simple volume:</b>
+  <%= @importage.simple_volume %>
+</p>
+
+
+<%= link_to 'Edit', edit_importage_path(@importage) %> |
+<%= link_to 'Back', importages_path %>

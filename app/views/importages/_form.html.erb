@@ -1,0 +1,33 @@
+<%= form_for(@importage) do |f| %>
+  <% if @importage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@importage.errors.count, "error") %> prohibited this importage from being saved:</h2>
+
+      <ul>
+      <% @importage.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :mix_id %><br />
+    <%= f.text_field :mix_id %>
+  </div>
+  <div class="field">
+    <%= f.label :sample_id %><br />
+    <%= f.text_field :sample_id %>
+  </div>
+  <div class="field">
+    <%= f.label :simple_volume %><br />
+    <%= f.text_field :simple_volume %>
+  </div>
+  <div class="field">
+    <%= f.label :start_time %><br />
+    <%= f.text_field :start_time %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

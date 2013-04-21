@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @musician.name %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @musician.desc %>
+</p>
+
+<p>
+  <b>Samples:</b>
+  <ul>
+    <% @musician.samples.each do |s| %>
+      <li>
+        <%= link_to 'add to library', 
+           {:action => :grab, :sample => s} %>
+        <%= s.name %>
+      </li>
+    <% end %>
+  </ul>
+</p>
+
+<%= link_to 'Edit', edit_musician_path(@musician) %> |
+<%= link_to 'Back', musicians_path %>

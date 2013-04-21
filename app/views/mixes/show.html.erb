@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @mix.name %>
+</p>
+
+<p>
+  <b>Desc:</b>
+  <%= @mix.desc %>
+</p>
+
+<p>
+  <b>Musician:</b>
+  <%= @mix.musician_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_mix_path(@mix) %> |
+<%= link_to 'Back', mixes_path %>

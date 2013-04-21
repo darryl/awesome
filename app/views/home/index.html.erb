@@ -1,0 +1,8 @@
+<h1>project awesome</h1>
+<p>
+<h2> musicians </h2>
+<ul>
+<% Musician.find(:all).each{|m| %>
+<li> <%= m.email %> </li>
+<% } %>
+</ul>

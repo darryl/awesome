@@ -1,0 +1,17 @@
+.sample { 
+margin-bottom:20px;width: 90px; height: 90px; padding: 0.5em; margin: 0 10px 10px 0; 
+float: left; 
+position: absolute;
+} 
+
+#tracks {
+list-style-type: none;
+}
+
+
+
+.track {
+margin-bottom:20px;width: 90px; height: 90px; padding: 0.5em; margin: 0 10px 10px 0; 
+position: static;
+border: 1px solid #DDDDDD;
+}

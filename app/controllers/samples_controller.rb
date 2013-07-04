@@ -1,83 +1,76 @@
 class SamplesController < ApplicationController
+  before_action :set_sample, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_musician!, :except => [:index, :show]
+
   # GET /samples
-  # GET /samples.xml
+  # GET /samples.json
   def index
     @samples = Sample.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @samples }
-    end
   end
 
   # GET /samples/1
-  # GET /samples/1.xml
+  # GET /samples/1.json
   def show
-    @sample = Sample.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @sample }
-    end
   end
 
   # GET /samples/new
-  # GET /samples/new.xml
   def new
     @sample = Sample.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @sample }
-    end
   end
 
   # GET /samples/1/edit
   def edit
-    @sample = Sample.find(params[:id])
   end
 
   # POST /samples
-  # POST /samples.xml
+  # POST /samples.json
   def create
-    @sample = Sample.new(params[:sample])
+
+    @sample = Sample.new(sample_params().merge({ musician_id: current_musician.id}))
 
     respond_to do |format|
       if @sample.save
-        format.html { redirect_to(@sample, :notice => 'Sample was successfully created.') }
-        format.xml  { render :xml => @sample, :status => :created, :location => @sample }
+        format.html { redirect_to @sample, notice: 'Sample was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @sample }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @sample.errors, :status => :unprocessable_entity }
+        format.html { render action: 'new' }
+        format.json { render json: @sample.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /samples/1
-  # PUT /samples/1.xml
+  # PATCH/PUT /samples/1
+  # PATCH/PUT /samples/1.json
   def update
-    @sample = Sample.find(params[:id])
-
     respond_to do |format|
-      if @sample.update_attributes(params[:sample])
-        format.html { redirect_to(@sample, :notice => 'Sample was successfully updated.') }
-        format.xml  { head :ok }
+      if @sample.update(sample_params)
+        format.html { redirect_to @sample, notice: 'Sample was successfully updated.' }
+        format.json { head :no_content }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @sample.errors, :status => :unprocessable_entity }
+        format.html { render action: 'edit' }
+        format.json { render json: @sample.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /samples/1
-  # DELETE /samples/1.xml
+  # DELETE /samples/1.json
   def destroy
-    @sample = Sample.find(params[:id])
     @sample.destroy
-
     respond_to do |format|
-      format.html { redirect_to(samples_url) }
-      format.xml  { head :ok }
+      format.html { redirect_to samples_url }
+      format.json { head :no_content }
     end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_sample
+      @sample = current_musician.samples.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def sample_params
+      params.require(:sample).permit(:name, :audio, :desc)
+    end
 end

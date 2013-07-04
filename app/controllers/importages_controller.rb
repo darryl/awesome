@@ -1,83 +1,74 @@
 class ImportagesController < ApplicationController
+  before_action :set_importage, only: [:show, :edit, :update, :destroy]
+
   # GET /importages
-  # GET /importages.xml
+  # GET /importages.json
   def index
     @importages = Importage.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @importages }
-    end
   end
 
   # GET /importages/1
-  # GET /importages/1.xml
+  # GET /importages/1.json
   def show
-    @importage = Importage.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @importage }
-    end
   end
 
   # GET /importages/new
-  # GET /importages/new.xml
   def new
     @importage = Importage.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @importage }
-    end
   end
 
   # GET /importages/1/edit
   def edit
-    @importage = Importage.find(params[:id])
   end
 
   # POST /importages
-  # POST /importages.xml
+  # POST /importages.json
   def create
-    @importage = Importage.new(params[:importage])
+    @importage = Importage.new(importage_params)
 
     respond_to do |format|
       if @importage.save
-        format.html { redirect_to(@importage, :notice => 'Importage was successfully created.') }
-        format.xml  { render :xml => @importage, :status => :created, :location => @importage }
+        format.html { redirect_to @importage, notice: 'Importage was successfully created.' }
+        format.json { render action: 'show', status: :created, location: @importage }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @importage.errors, :status => :unprocessable_entity }
+        format.html { render action: 'new' }
+        format.json { render json: @importage.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PUT /importages/1
-  # PUT /importages/1.xml
+  # PATCH/PUT /importages/1
+  # PATCH/PUT /importages/1.json
   def update
-    @importage = Importage.find(params[:id])
-
     respond_to do |format|
-      if @importage.update_attributes(params[:importage])
-        format.html { redirect_to(@importage, :notice => 'Importage was successfully updated.') }
-        format.xml  { head :ok }
+      if @importage.update(importage_params)
+        format.html { redirect_to @importage, notice: 'Importage was successfully updated.' }
+        format.json { head :no_content }
       else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @importage.errors, :status => :unprocessable_entity }
+        format.html { render action: 'edit' }
+        format.json { render json: @importage.errors, status: :unprocessable_entity }
       end
     end
   end
 
   # DELETE /importages/1
-  # DELETE /importages/1.xml
+  # DELETE /importages/1.json
   def destroy
-    @importage = Importage.find(params[:id])
     @importage.destroy
-
     respond_to do |format|
-      format.html { redirect_to(importages_url) }
-      format.xml  { head :ok }
+      format.html { redirect_to importages_url }
+      format.json { head :no_content }
     end
   end
+
+  private
+    # Use callbacks to share common setup or constraints between actions.
+    def set_importage
+      @importage = Importage.find(params[:id])
+    end
+
+    # Never trust parameters from the scary internet, only allow the white list through.
+    def importage_params
+      params.require(:importage).permit(:start_time, :simple_volume)
+    end
 end

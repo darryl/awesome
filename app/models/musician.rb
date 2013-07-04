@@ -1,17 +1,18 @@
 class Musician < ActiveRecord::Base
   # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable, :lockable and :timeoutable
+  # :token_authenticatable, :confirmable,
+  # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
-
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :password, :password_confirmation, :remember_me, :name, :desc
+    :recoverable, :rememberable, :trackable, :validatable
 
   has_many :samples
   has_many :mixes
   has_one :library
+
+  before_create :setup_library
   
-  def before_create
+  private
+  def setup_library
     if library.nil?
       self.library = Library.create()
     end

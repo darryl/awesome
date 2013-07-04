@@ -1,4 +1,4 @@
-AWESOME: Social Music tracker
+AWESOME: Social Music Tracker
 =============================
 
 An old experiment in HTML5

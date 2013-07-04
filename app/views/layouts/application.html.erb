@@ -2,20 +2,18 @@
 <html>
 <head>
   <title>Awesome</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= stylesheet_link_tag 'ui-lightness/jquery-ui-1.8.5.custom.css' %>
-  <%= csrf_meta_tag %>
-
-<%= javascript_include_tag 'tracker.js' %>
+  <%= stylesheet_link_tag :application %>
+  <%= javascript_include_tag :application %>
+  <%= csrf_meta_tags %>
 </head>
 <body>
 <p><%= musician_signed_in? ? "logged in as #{current_musician.email}" : 'not logged in' %> </p>
 
 
-<% %w(/musicians/sign_in /samples /mixes /importages /musicians/sign_out /musicians/edit /musicians).each do |l| %>
+<% %w(/musicians/sign_in /samples /mixes /importages /musicians/edit /musicians).each do |l| %>
 <%= link_to l, l %>
 <% end %>
+<%= link_to :logout, destroy_musician_session_url, method: :delete %>
 
        <p class="notice"><%= notice %></p>
        <p class="alert"><%= alert %></p>

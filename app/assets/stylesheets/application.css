@@ -12,6 +12,7 @@
  *= require_tree .
  */
 
-/*
+/* sprockets seems to add enough ui without the like below ###
  *= require jquery.ui.all
+ *= require jquery-ui-themes-1.10.3/themes/ui-lightness/jquery.ui.theme.css
  */

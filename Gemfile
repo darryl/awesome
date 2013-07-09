@@ -8,6 +8,8 @@ group :deployment do
   gem 'berkshelf'
 end
 
+gem 'mysql2'
+
 gem 'jquery-ui-rails'
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git", branch: 'rails-4'

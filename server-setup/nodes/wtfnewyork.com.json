@@ -1,0 +1,34 @@
+{
+    "run_list":[
+        "needed_packages",
+	"databox",
+	"rackbox"
+    ],
+    "appbox": {
+	"deploy_keys": ["ssh-dss AAAAB3NzaC1kc3MAAACBAMyvxAzbu+1xQ3pTxNhcya7W1yEmH0BiFHMlyNAmEb/Bld6ayJsIbEnYhkku/mdQFX4ebeQtIUBGwABm+7H6V3zvaj3VtyHE/qRNCE2UnZFVfuB4DyxjWznycNzMIGsl/JgxrqJlxuEj1c/N7BYxRjP1izvy0VFnRSbNKjYv1Ff5AAAAFQCdMzsRIHc/b/x+7PcQj5pOdHWzIQAAAIBTxWD0c+u7j5br84APAELPISOEC2xJMGbHu9Rih8OKZhgKIIezERLPH3dN0yDuVj5Oti0Vc0Tf5lYeGN50542iP0VCwIkDl68j3bDUbbfBLlRvR3ZeLm52om37jb/M515nzo173Q0GTjxKK0nEB5HbWi5Qnvsn/ttyO4SbP48NvwAAAIEAmxukwc9QOdGlELSTsjsbx21EtbO3xa0evQX3OyNhC2QawL1KUwmP0n3rOEka2/SkO7eqMBwhmgzfj9Q2b4Z3vhU6B+C6S1vla+uLh5ZmxgB5sWn9GpNG6u7Dl87h6IKnTojdXS1Gn+h4qh7mC2vHb8HVAlHmRUMX16L5ml1aCgU= darryl@TheJabberwock"],
+	"admin_keys": ["ssh-dss AAAAB3NzaC1kc3MAAACBAMyvxAzbu+1xQ3pTxNhcya7W1yEmH0BiFHMlyNAmEb/Bld6ayJsIbEnYhkku/mdQFX4ebeQtIUBGwABm+7H6V3zvaj3VtyHE/qRNCE2UnZFVfuB4DyxjWznycNzMIGsl/JgxrqJlxuEj1c/N7BYxRjP1izvy0VFnRSbNKjYv1Ff5AAAAFQCdMzsRIHc/b/x+7PcQj5pOdHWzIQAAAIBTxWD0c+u7j5br84APAELPISOEC2xJMGbHu9Rih8OKZhgKIIezERLPH3dN0yDuVj5Oti0Vc0Tf5lYeGN50542iP0VCwIkDl68j3bDUbbfBLlRvR3ZeLm52om37jb/M515nzo173Q0GTjxKK0nEB5HbWi5Qnvsn/ttyO4SbP48NvwAAAIEAmxukwc9QOdGlELSTsjsbx21EtbO3xa0evQX3OyNhC2QawL1KUwmP0n3rOEka2/SkO7eqMBwhmgzfj9Q2b4Z3vhU6B+C6S1vla+uLh5ZmxgB5sWn9GpNG6u7Dl87h6IKnTojdXS1Gn+h4qh7mC2vHb8HVAlHmRUMX16L5ml1aCgU= darryl@TheJabberwock"]
+    },
+    "databox": { 
+	"db_root_password": "LobsterBibs",
+	"databases": {
+	    "mysql": [
+		{ "username": "app1",
+		  "password": "app1",
+		  "database_name": "awesome4",
+                  "host": "localhost" }
+	    ]
+	}
+    },
+    "rackbox": {
+	"ruby": {
+	    "versions": ["2.0.0-p247"],
+	    "global_version": "2.0.0-p247"
+	},
+	"apps": {
+            "unicorn": [
+                { "appname": "awesome",
+                  "hostname": "wtfnewyork.com" }
+            ]
+	}
+    }
+}

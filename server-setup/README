@@ -1,0 +1,24 @@
+deployment to {vagrant,wtfnewyork.com} with knife-solo
+
+to get a VirtualBox configured with vagrant
+
+prereqs
+vagrant,VirtualBox installed
+~/.ssh/conf configured for vagrant
+
+copy awesome/config/deploy.rb.vagrant to awesome/config/deploy.rb
+
+in this directory:
+bundle install && 
+berks install && # if berks isn't in your path you need to add the rubygems path to your path
+vagrant up && 
+knife solo prepare vagrant && 
+knife solo cook vagrant
+
+# deploy to it
+
+cd .. &&
+bundle install &&
+cap deploy:setup &&
+cap deploy &&
+cap deploy:migrate

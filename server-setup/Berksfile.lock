@@ -1,0 +1,94 @@
+{
+  "sources": {
+    "runit": {
+      "locked_version": "1.1.6"
+    },
+    "databox": {
+      "locked_version": "0.1.1"
+    },
+    "rackbox": {
+      "locked_version": "0.1.2"
+    },
+    "application": {
+      "locked_version": "2.0.4"
+    },
+    "haproxy": {
+      "locked_version": "1.3.2"
+    },
+    "needed_packages": {
+      "path": "./needed_packages"
+    },
+    "build-essential": {
+      "locked_version": "1.4.0"
+    },
+    "yum": {
+      "locked_version": "2.3.0"
+    },
+    "database": {
+      "locked_version": "1.4.0"
+    },
+    "mysql": {
+      "locked_version": "3.0.2"
+    },
+    "openssl": {
+      "locked_version": "1.0.2"
+    },
+    "postgresql": {
+      "locked_version": "3.0.2"
+    },
+    "apt": {
+      "locked_version": "2.0.0"
+    },
+    "aws": {
+      "locked_version": "0.101.2"
+    },
+    "xfs": {
+      "locked_version": "1.1.0"
+    },
+    "appbox": {
+      "locked_version": "0.1.1"
+    },
+    "sudo": {
+      "locked_version": "2.1.2"
+    },
+    "user": {
+      "locked_version": "0.3.0"
+    },
+    "curl": {
+      "locked_version": "1.1.0"
+    },
+    "htop": {
+      "locked_version": "1.0.0"
+    },
+    "git": {
+      "locked_version": "2.5.2"
+    },
+    "dmg": {
+      "locked_version": "1.1.0"
+    },
+    "windows": {
+      "locked_version": "1.10.0"
+    },
+    "chef_handler": {
+      "locked_version": "1.1.4"
+    },
+    "tmux": {
+      "locked_version": "1.3.0"
+    },
+    "rbenv": {
+      "locked_version": "1.4.2"
+    },
+    "ohai": {
+      "locked_version": "1.1.10"
+    },
+    "nginx": {
+      "locked_version": "1.7.0"
+    },
+    "unicorn": {
+      "locked_version": "1.3.0"
+    },
+    "cpu": {
+      "locked_version": "0.2.0"
+    }
+  }
+}

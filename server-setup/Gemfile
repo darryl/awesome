@@ -1,0 +1,9 @@
+
+source "https://rubygems.org"
+
+gem "knife-solo", ">= 0.3.0pre3"
+gem "berkshelf"
+
+# Vagrant isn't supported as a gem anymore so you have to use
+# an installer specific to your os
+# gem "vagrant"

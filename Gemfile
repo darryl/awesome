@@ -1,5 +1,13 @@
 source 'https://rubygems.org'
 
+# Deployment:
+group :deployment do
+  gem 'knife-solo'
+  gem 'berkshelf'
+  gem 'unicorn'
+  gem 'berkshelf'
+end
+
 gem 'jquery-ui-rails'
 
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git", branch: 'rails-4'
@@ -35,7 +43,7 @@ gem 'jbuilder', '~> 1.0.1'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
-  gem 'sdoc', require: false
+  # gem 'sdoc', require: false
 end
 
 # Use ActiveModel has_secure_password

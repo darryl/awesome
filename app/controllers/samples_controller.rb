@@ -4,7 +4,9 @@ class SamplesController < ApplicationController
 
   def grab
     sample = Sample.find(params[:id])
-    current_musician.library.samples << sample
+    unless current_musician.library.samples.include? sample
+      current_musician.library.samples << sample
+    end
     flash[:notice] = 'sample added to your library'
     respond_to do |format|
       format.html { redirect_to action: :show, musician: sample.musician } ###

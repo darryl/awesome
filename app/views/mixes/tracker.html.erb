@@ -8,7 +8,7 @@
 <% if current_musician.library.samples.length == 0 %>
 you don't have any samples. add them to your library <%= link_to 'here', samples_path %>
 <% else %>
-(click 'use' to add them to the song)
+(click 'use' to add them to the song. drag the squares around to the right time. then click the 'play&gt')
 <% end %>
     <% current_musician.library.samples.each{|s| %>
     <li sampleId="<%= s.id %>">

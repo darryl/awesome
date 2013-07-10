@@ -11,6 +11,10 @@ class Musician < ActiveRecord::Base
 
   before_create :setup_library
   
+  def name
+    email.split('@')[0]
+  end
+  
   private
   def setup_library
     if library.nil?

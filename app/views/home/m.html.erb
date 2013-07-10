@@ -1,18 +1,6 @@
 <h1><%= @musician.email %></h1>
 
-<h2>Samples Library</h2>
-
-<p>add samples | upload new</p>
-
-<ul>
-<%  @musician.library.samples.each do |sample| %>
-<li>
-<%=   render partial: '/samples/display', locals: {sample: sample} %>
-</li>
-<%  end %>
-</ul>
-
-<h2>Mixes</h2>
+<h3>Mixes</h3>
 
 <%= form_for(@mix) do |f| %>
   <% if @mix.errors.any? %>
@@ -47,3 +35,16 @@
   </tr>
 <% end %>
 </table>
+
+<h3>Samples Library</h3>
+
+<p><%= link_to 'find samples', samples_url %> |
+   <%= link_to 'upload new', new_sample_url %></p>
+
+<ul>
+<%  @musician.library.samples.each do |sample| %>
+  <li>
+<%=   render partial: '/samples/display', locals: {sample: sample} %>
+  </li>
+<%  end %>
+</ul>

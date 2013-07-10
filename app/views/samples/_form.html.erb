@@ -16,20 +16,16 @@
     <%= f.text_field :name %>
   </div>
 
-
   <div class="field">
-    <%= f.label :audio %> (btw according to <%= link_to 'this', 'http://html5doctor.com/native-audio-in-the-browser/' %> its only wav and ogg for firefox) <br />
+    <%= f.label :audio %> (ogg, mp3, or wav should work on chrome) <br />
     <%= f.file_field :audio %>
   </div>
 
   <div class="field">
-    <%= f.label :desc %><br />
+    <%= f.label :description %><br />
     <%= f.text_area :desc %>
   </div>
-  <div class="field">
-    <%= f.label :musician_id %><br />
-    <%= f.text_field :musician_id %>
-  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -9,15 +9,15 @@
 <body>
 <p>
 <%  if Rails.env.development? %>
-<%    %w(/samples /mixes /importages /musicians/edit /musicians).each do |l| %>
+<%    %w(/samples /mixes /importages /musicians/edit /musicians ).each do |l| %>
 <%=   link_to l, l %>
 <%    end          %>
 <%  end            %>
 </p>
 
 <p>
-<%   if musician_signed_in?                       %>
-<%=    link_to current_musician.email, home_m_url  %>
+<%   if musician_signed_in?                        %>
+<%=    link_to current_musician.name + ' home', home_m_url  %> | 
 <%=    link_to :logout, destroy_musician_session_url, method: :delete %>
 <%   else                                         %>
 <%=    link_to 'sign in', new_musician_session_url    %> 

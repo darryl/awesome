@@ -5,8 +5,14 @@ Awesome4::Application.routes.draw do
   get "home/index"
   get "home/m"
 
+## put 'musician/grab(.:format)', to: 'musicians#grab'
+  
   # data urls
-  resources :samples
+  resources :samples do
+    member do
+      post 'grab' => 'samples#grab'
+    end
+    end
 
   resources :mixes do
     member do
@@ -23,9 +29,9 @@ Awesome4::Application.routes.draw do
   devise_for :musicians
 
   resources :musicians do
-    member do
-      get 'grab'
-    end
+    # member do
+    #   put 'grab'
+    # end
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,11 +1,22 @@
 class SamplesController < ApplicationController
   before_action :set_sample, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_musician!, :except => [:index, :show]
+  before_action :authenticate_musician!, :except => [:show]
+
+  def grab
+    sample = Sample.find(params[:id])
+    current_musician.library.samples << sample
+    flash[:notice] = 'sample added to your library'
+    respond_to do |format|
+      format.html { redirect_to action: :show, musician: sample.musician } ###
+      format.json {render :json => sample }
+    end
+  end
 
   # GET /samples
   # GET /samples.json
   def index
     @samples = Sample.all
+    @my_samples = current_musician.library.samples
   end
 
   # GET /samples/1
@@ -30,7 +41,7 @@ class SamplesController < ApplicationController
 
     respond_to do |format|
       if @sample.save
-        format.html { redirect_to @sample, notice: 'Sample was successfully created.' }
+        format.html { redirect_to :action => :index, notice: 'Sample was successfully created.' }
         format.json { render action: 'show', status: :created, location: @sample }
       else
         format.html { render action: 'new' }

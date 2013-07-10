@@ -1,27 +1,34 @@
-<h1>Listing samples</h1>
-
+<h1>Samples</h1>
+<%= link_to 'New Sample', new_sample_path %>
 <table>
-  <tr>
-    <th>Name</th>
-    <th>Desc</th>
-    <th>Musician</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+
+<script type="text/javascript">
+  var musicianId = <%= current_musician.id %>;
+</script>
 
 <% @samples.each do |sample| %>
   <tr>
     <td><%= sample.name %></td>
     <td><%= sample.desc %></td>
-    <td><%= sample.musician_id %></td>
-    <td><%= link_to 'Show', sample %></td>
-    <td><%= link_to 'Edit', edit_sample_path(sample) %></td>
-    <td><%= link_to 'Destroy', sample, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td>uploaded by <%= sample.musician.try(:name) %></td>
+<!--    <td><%= link_to 'Edit', edit_sample_path(sample) %></td> -->
+<!--    <td><%= link_to 'Destroy', sample, :confirm => 'Are you sure?', :method => :delete %></td> -->
+
+<td>
+
+<% if @my_samples.include? sample %>
+(you have this sample)
+<% else %>
+
+<%= link_to 'add to your library', grab_sample_url(sample, :format => :json), :method => :post, remote: true %>
+
+<% end %>
+
+</td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Sample', new_sample_path %>
+

@@ -72,7 +72,8 @@ class MixesController < ApplicationController
   def destroy
     @mix.destroy
     respond_to do |format|
-      format.html { redirect_to mixes_url }
+###      format.html { redirect_to mixes_url }
+   format.html { redirect_to home_m_path }
       format.json { head :no_content }
     end
   end

@@ -7,16 +7,25 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p><%= musician_signed_in? ? "logged in as #{current_musician.email}" : 'not logged in' %> </p>
+<p>
+<%  if Rails.env.development? %>
+<%    %w(/samples /mixes /importages /musicians/edit /musicians).each do |l| %>
+<%=   link_to l, l %>
+<%    end          %>
+<%  end            %>
+</p>
 
+<p>
+<%   if musician_signed_in?                       %>
+<%=    link_to current_musician.email, musician_url(current_musician)   %>
+<%=    link_to :logout, destroy_musician_session_url, method: :delete %>
+<%   else                                         %>
+<%=    link_to 'sign in', new_musician_session_url    %> 
+<%   end                                          %>
+</p>
 
-<% %w(/musicians/sign_in /samples /mixes /importages /musicians/edit /musicians).each do |l| %>
-<%= link_to l, l %>
-<% end %>
-<%= link_to :logout, destroy_musician_session_url, method: :delete %>
-
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
 
 <%= yield %>
 

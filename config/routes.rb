@@ -1,6 +1,6 @@
 Awesome4::Application.routes.draw do
   # public urls
-  root :to => "home#index"
+  root :to => "home#m"
 
   get "home/index"
   get "home/m"

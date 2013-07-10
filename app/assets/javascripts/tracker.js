@@ -1,6 +1,7 @@
 // samples have x position within the tracks div, width, xEnd?, startTime, endTime in seconds
 
 // use jquery ui to make samples draggable 
+/// this breaks with turbo links ###
 $(document).ready(function() {
     $( ".sample" ).draggable({ axis: "x", 
                                stop: function(event, ui){ 

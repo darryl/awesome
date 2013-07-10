@@ -19,7 +19,7 @@
     <%= f.submit :value => 'new' %>
 <% end %>
 
-<table>
+<table data-no-turbolink>
   <tr>
     <th>Name</th>
     <th></th>
@@ -29,16 +29,15 @@
 <% @musician.mixes.each do |mix| %>
   <tr>
     <td><%= mix.name %></td>
-  
-    <td><%= link_to 'Delete', mix, :confirm => 'Are you sure?', :method => :delete %></td>
-    <td><%= link_to 'tracker', "/mixes/#{mix.id}/tracker" %></td>
+     <td><%= link_to 'Play - Edit', "/mixes/#{mix.id}/tracker" %></td> 
+    <td><%= link_to 'Delete', mix, :confirm => 'Delete track ' + mix.name + '?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <h3>Samples Library</h3>
 
-<p><%= link_to 'find samples', samples_url %> |
+<p data-no-turbolink><%= link_to 'find samples', samples_url %> |
    <%= link_to 'upload new', new_sample_url %></p>
 
 <ul>

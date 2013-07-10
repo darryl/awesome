@@ -1,9 +1,11 @@
 Awesome4::Application.routes.draw do
-
+  # public urls
   root :to => "home#index"
 
   get "home/index"
+  get "home/m"
 
+  # data urls
   resources :samples
 
   resources :mixes do

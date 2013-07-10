@@ -17,7 +17,7 @@
 
 <p>
 <%   if musician_signed_in?                       %>
-<%=    link_to current_musician.email, musician_url(current_musician)   %>
+<%=    link_to current_musician.email, home_m_url  %>
 <%=    link_to :logout, destroy_musician_session_url, method: :delete %>
 <%   else                                         %>
 <%=    link_to 'sign in', new_musician_session_url    %> 

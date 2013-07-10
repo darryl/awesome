@@ -4,14 +4,14 @@ class MixesController < ApplicationController
 
   def add_sample
     sample_id = params[:sample_id].to_i
-    
+
     mix_id = params[:id]
     importage = Importage.create!(sample_id: sample_id, mix_id: mix_id)
     respond_to do |format|
       format.json { render json: importage }
     end
   end
-  
+
   def tracker
     @tracks = @mix.samples.uniq
     @xToTimeConst = 10
@@ -44,7 +44,7 @@ class MixesController < ApplicationController
 
     respond_to do |format|
       if @mix.save
-        format.html { redirect_to @mix, notice: 'Mix was successfully created.' }
+        format.html { redirect_to tracker_mix_url(@mix), notice: 'new mix' }
         format.json { render action: 'show', status: :created, location: @mix }
       else
         format.html { render action: 'new' }

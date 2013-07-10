@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'faker'
+
 # Deployment:
 group :deployment do
   gem 'knife-solo'

@@ -1,5 +1,7 @@
 <meta charset="utf-8">
 
+<h1><%= @mix.name %></h1>
+
 <div id="library">
   <h3>library</h3>
   <ul id="library">
@@ -7,7 +9,7 @@
     <li sampleId="<%= s.id %>">
       <span class="name"><%= s.name %></span>
       <audio src="<%= s.audio.url %>" controls></audio>
-      <%= link_to '(add)', '#', onclick: "addSample(#{s.id}); return false;"%>
+      <%= link_to '(use)', '#', onclick: "addSample(#{s.id}); return false;"%>
     </li>
     <% } %>
   </ul>

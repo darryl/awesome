@@ -1,0 +1,49 @@
+<h1><%= @musician.email %></h1>
+
+<h2>Samples Library</h2>
+
+<p>add samples | upload new</p>
+
+<ul>
+<%  @musician.library.samples.each do |sample| %>
+<li>
+<%=   render partial: '/samples/display', locals: {sample: sample} %>
+</li>
+<%  end %>
+</ul>
+
+<h2>Mixes</h2>
+
+<%= form_for(@mix) do |f| %>
+  <% if @mix.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@mix.errors.count, "error") %> prohibited this mix from being saved:</h2>
+
+      <ul>
+      <% @mix.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+   
+    <%= f.text_field :name, value: @mix.name %>
+    <%= f.submit :value => 'new' %>
+<% end %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @musician.mixes.each do |mix| %>
+  <tr>
+    <td><%= mix.name %></td>
+  
+    <td><%= link_to 'Delete', mix, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'tracker', "/mixes/#{mix.id}/tracker" %></td>
+  </tr>
+<% end %>
+</table>

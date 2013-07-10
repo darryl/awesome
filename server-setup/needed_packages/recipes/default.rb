@@ -1,3 +1,9 @@
+# nginx needs the wav mime type[s] for firefox to recognize them as audio
+# audio/x-wav                           wav;
+# in 
+# /etc/nginx/mime.types
+
+
 # needed on ubuntu
 # not using postgres or sqlite but sick of seeing error messages when the gems install
 pkgs = %w(sqlite3 libsqlite3-dev nodejs npm postgresql-server-dev-all )

@@ -1,3 +1,5 @@
+
+
 <h1><%= @musician.email %></h1>
 
 <h3>Mixes</h3>
@@ -19,7 +21,7 @@
     <%= f.submit :value => 'new' %>
 <% end %>
 
-<table data-no-turbolink>
+<table>
   <tr>
     <th>Name</th>
     <th></th>
@@ -29,21 +31,30 @@
 <% @musician.mixes.each do |mix| %>
   <tr>
     <td><%= mix.name %></td>
-     <td><%= link_to 'Play - Edit', "/mixes/#{mix.id}/tracker" %></td> 
-    <td><%= link_to 'Delete', mix, :confirm => 'Delete track ' + mix.name + '?', :method => :delete %></td>
+    <td><%= link_to 'Play - Edit', "/mixes/#{mix.id}/tracker" %></td> 
+    <td><%= link_to 'Delete', mix, data: {:confirm => 'Delete track "' + mix.name + '"?'}, :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <h3>Samples Library</h3>
 
-<p data-no-turbolink><%= link_to 'find samples', samples_url %> |
+<p><%= link_to 'find samples', samples_url %> |
    <%= link_to 'upload new', new_sample_url %></p>
 
-<ul>
-<%  @musician.library.samples.each do |sample| %>
-  <li>
-<%=   render partial: '/samples/display', locals: {sample: sample} %>
-  </li>
+<table>
+<%  @musician.library.importages.each do |importage| %>
+<% sample = importage.sample %>
+<tr id="<%= "importage-#{importage.id}" %>">
+<td>  <%= sample.name %> </td>
+<td>  <audio src="<%= sample.audio.url %>" controls></audio> </td>
+
+<td>  <%= link_to 'remove from library', 
+              importage_path(importage, :format => :json), 
+              method: :delete,
+              remote: true,
+              "remove-sample" => true %> </td>
+
+</tr>
 <%  end %>
 </ul>

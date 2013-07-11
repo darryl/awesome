@@ -10,17 +10,20 @@
   <tr>
     <td><%= sample.name %></td>
     <td><%= sample.desc %></td>
+    <td><audio src="<%= sample.audio.url %>" controls></audio></td>
     <td>uploaded by <%= sample.musician.try(:name) %></td>
-<!--    <td><%= link_to 'Edit', edit_sample_path(sample) %></td> -->
-<!--    <td><%= link_to 'Destroy', sample, :confirm => 'Are you sure?', :method => :delete %></td> -->
 
 <td>
-
 <% if @my_samples.include? sample %>
-(you have this sample)
+(in library)
 <% else %>
 
-<%= link_to 'add to your library', grab_sample_url(sample, :format => :json), :method => :post, remote: true %>
+<%= link_to 'add to library', 
+            grab_sample_url(sample, :format => :json), 
+            :method => :patch,
+            remote: true,
+            class: 'grab-sample',
+            id: "sample-#{sample.id}" %>
 
 <% end %>
 

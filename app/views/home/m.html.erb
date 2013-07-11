@@ -44,7 +44,7 @@
 
 <table>
 <%  @musician.library.importages.each do |importage| %>
-<% sample = importage.sample %>
+<% sample = importage.sample || {name: :missing, {audio: url: :missing}}%>
 <tr id="<%= "importage-#{importage.id}" %>">
 <td>  <%= sample.name %> </td>
 <td>  <audio src="<%= sample.audio.url %>" controls></audio> </td>

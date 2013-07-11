@@ -54,10 +54,10 @@ class ImportagesController < ApplicationController
   # DELETE /importages/1
   # DELETE /importages/1.json
   def destroy
-    @importage.destroy
+    eximportage = @importage.destroy
     respond_to do |format|
       format.html { redirect_to importages_url }
-      format.json { head :no_content }
+      format.json { render :text => "{\"deleted\": #{eximportage.id}}" }
     end
   end
 

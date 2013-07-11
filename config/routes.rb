@@ -5,12 +5,10 @@ Awesome4::Application.routes.draw do
   get "home/index"
   get "home/m"
 
-## put 'musician/grab(.:format)', to: 'musicians#grab'
-  
   # data urls
   resources :samples do
     member do
-      post 'grab' => 'samples#grab'
+      patch 'grab' => 'samples#grab'
     end
     end
 
@@ -18,7 +16,7 @@ Awesome4::Application.routes.draw do
     member do
       get 'tracker' => 'mixes#tracker'
       post 'add_sample' => 'mixes#add_sample'
-      get 'add_sample/:sample_id' => 'mixes#add_sample'
+      get 'add_sample/:sample_id' => 'mixes#add_sample' ###
     end
   end
 

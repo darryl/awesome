@@ -30,12 +30,11 @@ var addSample = function(sampleId) {
     })
     var sampleHtml = 
         '<div class="sample ui-widget-content" sampleId="' + sampleId + '" importageId="' + importageId + '">' +
-        '<p>' + $('#library li[sampleId=' + sampleId + '] .name').first().html() +
-        '<audio src="' + $('#library li[sampleId=' + sampleId + '] audio').attr('src') + '"></audio>' +
+        '<p>' + $('#library tr[sampleId=' + sampleId + '] .name').first().html() +
+        '<audio src="' + $('#library tr[sampleId=' + sampleId + '] audio').attr('src') + '"></audio>' +
         '</p>' +
         '</div>';
     // is the track already in the tracks list?
-    /// alert($('#tracks .track[sampleId=' + sampleId + ']').length);
     if ($('#tracks .track[sampleId=' + sampleId + ']').length > 0){
         // add a sample object to that track
         $('#tracks .track[sampleId=' + sampleId + ']').append(sampleHtml);

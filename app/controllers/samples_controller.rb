@@ -43,7 +43,7 @@ class SamplesController < ApplicationController
 
     respond_to do |format|
       if @sample.save
-        current_musician.library << @sample
+        current_musician.library.samples << @sample
         format.html { redirect_to :action => :index, notice: 'Sample was successfully created.' }
         format.json { render action: 'show', status: :created, location: @sample }
       else

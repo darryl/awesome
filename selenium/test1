@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost:3000/" />
+<title>test1</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">test1</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/musicians/sign_in</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sign up</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=musician_email</td>
+	<td>selenium@s.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=musician_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=musician_password_confirmation</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=mix_name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>selenium@s.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=logout</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=musician_email</td>
+	<td>selenium@s.com</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=musician_password</td>
+	<td>pass</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>selenium@s.com</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=upload new</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sample_name</td>
+	<td>test sample 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sample_audio</td>
+	<td>/home/darryl/proj/awesome4/test-wavs/KDE_Beep_Honk.wav</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Sample</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sample_name</td>
+	<td>test 2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sample_audio</td>
+	<td>/home/darryl/proj/awesome4/test-wavs/KDE_Beep_Lightning.wav</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>test 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>uploaded by selenium</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>(in library)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Sample</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sample_audio</td>
+	<td>/home/darryl/proj/awesome4/test-wavs/KDE_Beep_RingRing.wav</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sample_name</td>
+	<td>test3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=sample_desc</td>
+	<td>asdfasfdsafd</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>test3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>asdfasfdsafd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=selenium samples mixes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>id=mix_name</td>
+	<td>Test Mix</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>test sample 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>name=commit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Test Mix</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>test sample 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=(use)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=play&gt;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'(use)')])[2]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=play&gt;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'(use)')])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=play&gt;</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=selenium samples mixes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>test sample 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>test 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>test3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>link=remove from library</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>test sample 1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>xpath=(//a[contains(text(),'remove from library')])[3]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextNotPresent</td>
+	<td>test3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Play - Edit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>test 2</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=selenium samples mixes</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=find samples</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>//tr[2]/td[5]</td>
+	<td>(in library)</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>id=sample-3</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>css=table.2.3</td>
+	<td>uploaded by selenium</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Sample</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyText</td>
+	<td>css=h1</td>
+	<td>New sample</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=logout</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

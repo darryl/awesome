@@ -1,10 +1,12 @@
 <meta charset="utf-8">
 
 <h1><%= @mix.name %></h1>
-
+by <%= @mix.musician.name %>
 <div id="library">
+
+<% if current_musician == @mix.musician %>
   <h3>library</h3>
-  <table id="library">
+<table id="library">
 <% if current_musician.library.samples.length == 0 %>
 you don't have any samples. add them to your library <%= link_to 'here', samples_path %>
 <% else %>
@@ -19,7 +21,7 @@ you don't have any samples. add them to your library <%= link_to 'here', samples
     <% } %>
   </table>
 </div>
-
+<% end %>
 <div id="editor">
 
   <div>

@@ -17,7 +17,7 @@
 
 <p>
 <%   if musician_signed_in?                        %>
-<%=    link_to current_musician.name + ' home', home_m_url  %> | 
+<%=    link_to current_musician.name + ' samples mixes', home_m_url  %> | 
 <%=    link_to :logout, destroy_musician_session_url, method: :delete %>
 <%   else                                         %>
 <%=    link_to 'sign in', new_musician_session_url    %> 

@@ -4,6 +4,9 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+# don't index 30mb selenium server
+/selenium/selenium-server-standalone-2.33.0.jar
+
 /config/deploy.rb
 
 # Ignore bundler config.

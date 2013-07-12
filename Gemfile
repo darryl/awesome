@@ -10,6 +10,11 @@ group :deployment do
   gem 'berkshelf'
 end
 
+group :test do
+  gem 'selenium-client'
+  gem 'selenium-webdriver'
+end
+
 gem 'mysql2'
 
 gem 'jquery-ui-rails'

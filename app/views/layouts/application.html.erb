@@ -18,13 +18,15 @@
 </p>
 
 <p>
-<%   if musician_signed_in?                        %>
-<%=    link_to current_musician.name + ' samples mixes', home_m_url  %> | 
-<%=    link_to :logout, destroy_musician_session_url, method: :delete %>
+<%   if musician_signed_in?                       %>
+<%=    link_to current_musician.name + ' samples tracks', home_m_url  %>
 <%   else                                         %>
 <%=    link_to 'sign in', new_musician_session_url    %> 
-<%   end                                          %>
+<%   end                                         %>
+| <%= link_to 'all tracks', mixes_path %>
+| <%= link_to(:logout, destroy_musician_session_url, method: :delete) if musician_signed_in? %>
 </p>
+
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>

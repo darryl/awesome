@@ -44,7 +44,7 @@ class MixesController < ApplicationController
 
     respond_to do |format|
       if @mix.save
-        format.html { redirect_to tracker_mix_url(@mix), notice: 'new mix' }
+        format.html { redirect_to tracker_mix_url(@mix), notice: 'new track' }
         format.json { render action: 'show', status: :created, location: @mix }
       else
         format.html { render action: 'new' }
@@ -58,7 +58,7 @@ class MixesController < ApplicationController
   def update
     respond_to do |format|
       if @mix.update(mix_params)
-        format.html { redirect_to @mix, notice: 'Mix was successfully updated.' }
+        format.html { redirect_to @mix, notice: 'Track was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -72,8 +72,8 @@ class MixesController < ApplicationController
   def destroy
     @mix.destroy
     respond_to do |format|
-###      format.html { redirect_to mixes_url }
-   format.html { redirect_to home_m_path }
+      ###      format.html { redirect_to mixes_url }
+      format.html { redirect_to home_m_path }
       format.json { head :no_content }
     end
   end

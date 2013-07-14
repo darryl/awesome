@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+gem 'pry-rails', group: :development
+
 gem 'faker'
 
 # Deployment:

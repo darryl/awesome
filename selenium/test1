@@ -168,7 +168,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=selenium samples mixes</td>
+	<td>link=selenium samples tracks</td>
 	<td></td>
 </tr>
 <tr>
@@ -228,7 +228,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=selenium samples mixes</td>
+	<td>link=selenium samples tracks</td>
 	<td></td>
 </tr>
 <tr>
@@ -278,7 +278,7 @@
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>link=selenium samples mixes</td>
+	<td>link=selenium samples tracks</td>
 	<td></td>
 </tr>
 <tr>
@@ -316,7 +316,6 @@
 	<td>link=logout</td>
 	<td></td>
 </tr>
-
 </tbody></table>
 </body>
 </html>

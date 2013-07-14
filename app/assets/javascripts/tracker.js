@@ -12,6 +12,10 @@ var yay = function(selector) {
     $(selector).effect('highlight', 500);
 }
 
+var removeImportage = function(importageId) {
+$("[importageId="+importageId+']').hide()
+}
+
 var addSample = function(sampleId) {
     // each track has a #sample-id id that is the id of the sample
     var yaySelector = '';
@@ -32,6 +36,8 @@ var addSample = function(sampleId) {
         '<div class="sample ui-widget-content" sampleId="' + sampleId + '" importageId="' + importageId + '">' +
         '<p>' + $('#library tr[sampleId=' + sampleId + '] .name').first().html() +
         '<audio src="' + $('#library tr[sampleId=' + sampleId + '] audio').attr('src') + '"></audio>' +
+        '<a rel="nofollow" onclick="removeImportage(' + importageId + '); return false;" ' + 
+        'href="/importages/' + importageId + '.json" data-remote="true" data-method="delete">del</a>' +
         '</p>' +
         '</div>';
     // is the track already in the tracks list?

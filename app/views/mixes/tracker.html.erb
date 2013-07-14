@@ -1,22 +1,22 @@
 <meta charset="utf-8">
 
-<h1><%= @mix.name %></h1>
-by <%= @mix.musician.name %>
-<div id="library">
+  <h1><%= @mix.name %></h1>
+  by <%= @mix.musician.name %>
+  <div id="library">
 
-<% if current_musician == @mix.musician %>
-  <h3>library</h3>
-<table id="library">
-<% if current_musician.library.samples.length == 0 %>
-you don't have any samples. add them to your library <%= link_to 'here', samples_path %>
-<% else %>
-(click 'use' to add them to the song. drag the squares around to the right time. then click the 'play&gt')
-<% end %>
-    <% current_musician.library.samples.each{|s| %>
-    <tr sampleId="<%= s.id %>">
+    <% if current_musician == @mix.musician %>
+    <h3>library</h3>
+    <table id="library">
+      <% if current_musician.library.samples.length == 0 %>
+      you don't have any samples. add them to your library <%= link_to 'here', samples_path %>
+      <% else %>
+      (click 'use' to add them to the song. drag the squares around to the right time. then click the 'play&gt')
+      <% end %>
+      <% current_musician.library.samples.each{|s| %>
+      <tr sampleId="<%= s.id %>">
       <td><span class="name"><%= s.name %></span></td>
       <td><audio src="<%= s.audio.url %>" controls></audio></td>
-      <td><%= link_to '(use)', '#', onclick: "addSample(#{s.id}); return false;"%></td>
+      <td><%= link_to '(use)', '#', onclick: "addSample(#{s.id}); return false;" %></td>
     </tr>
     <% } %>
   </table>
@@ -30,22 +30,24 @@ you don't have any samples. add them to your library <%= link_to 'here', samples
   <div id="tracks">
 
     <% @tracks.each{|track| %>
-      <div class="track" sampleId="<%= track.id %>">
+    <div class="track" sampleId="<%= track.id %>">
 
-        <% Importage.find(:all, :conditions => {:sample_id => track.id, :mix_id => @mix.id}).each {|importage| %>
-          <div class="sample ui-widget-content" 
-               sampleId="<%= track.id %>" 
-               importageId="<%=importage.id%>"
-               style="left: <%=importage.start_time / @xToTimeConst%>px"> 
-            <p><%= track.name %>
-            <audio src="<%= importage.sample.audio.url %>"></audio></p>
-          </div>
-        <% } %>
-      </div>
-    <% } %>
+    <% Importage.find(:all, :conditions => {:sample_id => track.id, :mix_id => @mix.id}).each {|importage| %>
+    <div class="sample ui-widget-content" 
+         sampleId="<%= track.id %>" 
+         importageId="<%=importage.id%>"
+         style="left: <%=importage.start_time / @xToTimeConst%>px"> 
+    <p><%= track.name %>
+    <%= link_to 'del', importage_path(importage, format: :json), method: :delete, remote: true, onclick: "removeImportage(#{importage.id}); return false;" %> 
+<% '### there is no feed back for successful response from the server on delete' %>
+    <audio src="<%= importage.sample.audio.url %>"></audio></p>
   </div>
+  <% } %>
+</div>
+<% } %>
+</div>
 </div>
 
 <script type="text/javascript">
-  var mixId = <%= @mix.id %>;
+var mixId = <%= @mix.id %>;
 </script>

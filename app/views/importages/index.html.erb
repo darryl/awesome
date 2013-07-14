@@ -3,6 +3,8 @@
 <table>
   <tr>
     <th>Mix</th>
+    <th>Mix-lookup</th>
+    <th>Library</th>
     <th>Sample</th>
     <th>Simple volume</th>
     <th></th>
@@ -13,6 +15,8 @@
 <% @importages.each do |importage| %>
   <tr>
     <td><%= importage.mix_id %></td>
+    <td><%= importage.mix_id ? Mix.where(id: importage.mix_id).pluck(:name).to_a : '' %></td>
+    <td><%= importage.library_id %></td>
     <td><%= importage.sample_id %></td>
     <td><%= importage.simple_volume %></td>
     <td><%= link_to 'Show', importage %></td>

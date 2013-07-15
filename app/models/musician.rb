@@ -10,7 +10,8 @@ class Musician < ActiveRecord::Base
   has_one :library, :dependent => :destroy
 
   before_create :setup_library
-
+  after_create :first_samples
+  
   def name
     email.split('@')[0]
   end
@@ -20,5 +21,10 @@ class Musician < ActiveRecord::Base
     if library.nil?
       self.library = Library.create()
     end
+  end
+
+  # give new users something to get started with
+  def first_samples
+    self.library.samples << Sample.first(3)
   end
 end

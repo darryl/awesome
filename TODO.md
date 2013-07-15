@@ -5,7 +5,6 @@
 * README.md needs some love
 * truncate sample, track, and email string fields. they can be huge.
 * importages are getting orphaned when a track is deleted
-* populate new users' libraries with some default samples
 * chef needs to add the wav mime type to nginx config
 * clear out all the ###
 * read over all source and tidy it up

@@ -25,18 +25,22 @@ var addSample = function(sampleId) {
         async: false,
         url: '/mixes/' + mixId + '/add_sample.json', 
         dataType: 'json', 
-        type: 'POST', 
+        type: 'PUT', 
         // processData: false, 
         data: {sample_id: sampleId}, 
         success: function(woot){
             importageId = woot.id;
         }
     })
+  /// ### not very dry having this sampleHtml here. I could generate it to a hidden
+  /// div with the partial and then populate it with javascript from
+  /// there. otoh the player probably needs a major overhaul before it
+  /// can be taken seriously so no point in spending time to improve this one.
     var sampleHtml = 
         '<div class="sample ui-widget-content" sampleId="' + sampleId + '" importageId="' + importageId + '">' +
         '<p>' + $('#library tr[sampleId=' + sampleId + '] .name').first().html() +
         '<audio src="' + $('#library tr[sampleId=' + sampleId + '] audio').attr('src') + '"></audio>' +
-        '<a rel="nofollow" onclick="removeImportage(' + importageId + '); return false;" ' + 
+        ' <a rel="nofollow" onclick="removeImportage(' + importageId + '); return false;" ' + 
         'href="/importages/' + importageId + '.json" data-remote="true" data-method="delete">del</a>' +
         '</p>' +
         '</div>';

@@ -1,22 +1,23 @@
 Awesome4::Application.routes.draw do
-  # public urls
+
   root :to => "home#m"
 
-  get "home/index"
+  # unused atm
+  #get "home/index"
+
+  # user profile page
   get "home/m"
 
-  # data urls
   resources :samples do
     member do
       patch 'grab' => 'samples#grab'
     end
-    end
+  end
 
   resources :mixes do
     member do
       get 'tracker' => 'mixes#tracker'
-      post 'add_sample' => 'mixes#add_sample'
-      get 'add_sample/:sample_id' => 'mixes#add_sample' ###
+      put 'add_sample' => 'mixes#add_sample'
     end
   end
 
@@ -26,11 +27,8 @@ Awesome4::Application.routes.draw do
 
   devise_for :musicians
 
-  resources :musicians do
-    # member do
-    #   put 'grab'
-    # end
-  end
+  # musician info is not [yet?] editable
+  # resources :musicians
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

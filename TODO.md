@@ -39,6 +39,7 @@
 * list tracks on the front page so people can listen to them without logging in
 * make tracks displayable as a link or iframe snippet for external
   linking / sharing / facebook / adultfriendfinder / usenet
+* user profile page is discoverable to other users and has picture, description, info 
 * let users edit other users tracks and save it as their own fork or draft
   (maybe with a breadcrumb style attribution to the original author)
 * port tracker.js to coffee-script

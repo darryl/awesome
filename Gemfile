@@ -2,20 +2,21 @@ source 'https://rubygems.org'
 
 gem 'pry-rails', group: :development
 
-gem 'faker'
-
 # Deployment:
 group :deployment do
   gem 'knife-solo'
   gem 'berkshelf'
   gem 'unicorn'
   gem 'berkshelf'
+  gem 'capistrano'
 end
 
 group :test do
   gem 'selenium-client'
   gem 'selenium-webdriver'
 end
+
+gem 'faker'
 
 gem 'mysql2'
 
@@ -63,8 +64,6 @@ end
 # Use unicorn as the app server
 # gem 'unicorn'
 
-# Use Capistrano for deployment
-gem 'capistrano', group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

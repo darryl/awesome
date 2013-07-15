@@ -4,8 +4,6 @@
   but it will put some people off
 * README.md needs some love
 * truncate sample, track, and email string fields. they can be huge.
-* ensure ownership of library, mix, musician, sample before allowing
-   edit/create/delete (importage is already handled)
 * importages are getting orphaned when a track is deleted
 * populate new users' libraries with some default samples
 * chef needs to add the wav mime type to nginx config
@@ -35,8 +33,8 @@
 * loading bar for download and upload of samples
 * display sample time length
 * get it usable on mobile / ipad
-* suggest sample names on new sample
-* if there are ever a lot of samples, would want a way to
+* if there are ever a lot of samples, would want a way to filter them
+  (eg by tag or most popular)
 * a sweet logo
 * actually theme it up with some css. or don't. personally, I like it this way
 * list tracks on the front page so people can listen to them without logging in

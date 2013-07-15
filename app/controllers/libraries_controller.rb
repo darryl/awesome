@@ -1,6 +1,7 @@
 class LibrariesController < ApplicationController
-  before_action :set_library, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_library, only: [:show]
+  before_action :set_own_library, only[:update, :destroy, :edit]
+  
   # GET /libraries
   # GET /libraries.json
   def index
@@ -62,13 +63,18 @@ class LibrariesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_library
-      @library = Library.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_own_library
+    @library = current_musician.library
+    raise "library user mismatch" if @library.id != params[:id]
+  end
+  
+  def set_library
+    @library = Library.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def library_params
-      params[:library]
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def library_params
+    params[:library]
+  end
 end

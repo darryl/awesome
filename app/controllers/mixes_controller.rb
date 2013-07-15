@@ -1,12 +1,12 @@
 class MixesController < ApplicationController
-  before_action :set_mix, only: [:add_sample, :show, :edit, :update, :destroy, :tracker]
-  before_action :authenticate_musician!, except: [:list, :index, :show]
+  before_action :set_mix, only: [:show, :tracker]
+  before_action :set_own_mix, only: [:add_sample, :edit, :update, :destroy]
+  before_action :authenticate_musician!, except: [:list, :index, :show, :tracker]
 
   def add_sample
     sample_id = params[:sample_id].to_i
 
-    mix_id = params[:id]
-    importage = Importage.create!(sample_id: sample_id, mix_id: mix_id)
+    importage = Importage.create!(sample_id: sample_id, mix_id: @mix.id)
     respond_to do |format|
       format.json { render json: importage }
     end
@@ -56,6 +56,8 @@ class MixesController < ApplicationController
   # PATCH/PUT /mixes/1
   # PATCH/PUT /mixes/1.json
   def update
+
+    Rails.logger.warn(@mix.methods)
     respond_to do |format|
       if @mix.update(mix_params)
         format.html { redirect_to @mix, notice: 'Track was successfully updated.' }
@@ -79,9 +81,12 @@ class MixesController < ApplicationController
   end
 
   private
-  # Use callbacks to share common setup or constraints between actions.
   def set_mix
     @mix = Mix.find(params[:id])
+  end
+
+  def set_own_mix
+    @mix = current_musician.mixes.find(params[:id].to_i)
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

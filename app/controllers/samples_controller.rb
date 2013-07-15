@@ -9,9 +9,7 @@ class SamplesController < ApplicationController
     unless current_musician.library.samples.include? sample
       current_musician.library.samples << sample
     end
-    flash[:notice] = 'sample added to your library'
     respond_to do |format|
-      format.html { redirect_to action: :show, musician: sample.musician } ###
       format.json {render :json => sample }
     end
   end
@@ -46,7 +44,7 @@ class SamplesController < ApplicationController
     respond_to do |format|
       if @sample.save
         current_musician.library.samples << @sample
-        format.html { redirect_to :action => :index, notice: 'Sample was successfully created.' }
+        format.html { redirect_to :action => :index, notice: 'Sample was added.' }
         format.json { render action: 'show', status: :created, location: @sample }
       else
         format.html { render action: 'new' }

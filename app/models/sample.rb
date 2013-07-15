@@ -4,7 +4,7 @@ class Sample < ActiveRecord::Base
   belongs_to :musician
   has_many :mixes, :through => :importages
   has_many :importages
-  has_many :libraries, :through => :importages ###
+  has_many :libraries, :through => :importages
 
   before_create :populate_empty_name
 

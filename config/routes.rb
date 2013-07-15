@@ -21,14 +21,18 @@ Awesome4::Application.routes.draw do
     end
   end
 
-  resources :libraries
-
   resources :importages
 
   devise_for :musicians
 
   # musician info is not [yet?] editable
   # resources :musicians
+
+  # resources :libraries
+
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

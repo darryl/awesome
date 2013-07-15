@@ -1,6 +1,6 @@
 class LibrariesController < ApplicationController
   before_action :set_library, only: [:show]
-  before_action :set_own_library, only[:update, :destroy, :edit]
+  before_action :set_own_library, only: [:update, :destroy, :edit]
 
   # GET /libraries
   # GET /libraries.json

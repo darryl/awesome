@@ -1,7 +1,7 @@
 class LibrariesController < ApplicationController
   before_action :set_library, only: [:show]
   before_action :set_own_library, only[:update, :destroy, :edit]
-  
+
   # GET /libraries
   # GET /libraries.json
   def index
@@ -68,7 +68,7 @@ class LibrariesController < ApplicationController
     @library = current_musician.library
     raise "library user mismatch" if @library.id != params[:id]
   end
-  
+
   def set_library
     @library = Library.find(params[:id])
   end

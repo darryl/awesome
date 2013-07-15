@@ -56,7 +56,6 @@ class MixesController < ApplicationController
   # PATCH/PUT /mixes/1
   # PATCH/PUT /mixes/1.json
   def update
-
     Rails.logger.warn(@mix.methods)
     respond_to do |format|
       if @mix.update(mix_params)

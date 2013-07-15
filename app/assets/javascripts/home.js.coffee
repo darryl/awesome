@@ -5,4 +5,3 @@
 $ ->
   $("a[remove-sample]").on "ajax:success", (e, data, status, xhr) ->
     $("#importage-"+data["deleted"]).hide()
-

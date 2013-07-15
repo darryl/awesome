@@ -4,6 +4,8 @@ class SamplesController < ApplicationController
   before_action :set_own_sample, only: [:update, :destroy]
   before_action :authenticate_musician!, :except => [:show]
 
+  # adds this sample to the musician's library
+  # PUT
   def grab
     sample = Sample.find(params[:id])
     unless current_musician.library.samples.include? sample
@@ -82,6 +84,7 @@ class SamplesController < ApplicationController
   def set_own_sample
     @sample = current_musician.samples.find(params[:id])
   end
+  
   def set_sample
     @sample = Sample.find(params[:id])
   end

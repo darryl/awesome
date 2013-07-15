@@ -3,7 +3,7 @@ class Musician < ActiveRecord::Base
   # :token_authenticatable, :confirmable, :recoverable,
   # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-    :rememberable, :trackable, :validatable
+  :rememberable, :trackable, :validatable
 
   has_many :samples
   has_many :mixes
@@ -11,7 +11,7 @@ class Musician < ActiveRecord::Base
 
   before_create :setup_library
   after_create :first_samples
-  
+
   def name
     email.split('@')[0]
   end

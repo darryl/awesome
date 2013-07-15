@@ -2,36 +2,30 @@
 <%= link_to 'New Sample', new_sample_path %>
 <table>
 
-<script type="text/javascript">
-  var musicianId = <%= current_musician.id %>;
-</script>
+  <script type="text/javascript">
+    var musicianId = <%= current_musician.id %>;
+  </script>
 
-<% @samples.each do |sample| %>
+  <% @samples.each do |sample| %>
   <tr>
     <td><%= sample.name %></td>
     <td><%= sample.desc %></td>
     <td><audio src="<%= sample.audio.url %>" controls></audio></td>
     <td>uploaded by <%= sample.musician.try(:name) %></td>
 
-<td>
-<% if @my_samples.include? sample %>
-(in library)
-<% else %>
-
-<%= link_to 'add to library', 
-            grab_sample_url(sample, :format => :json), 
-            :method => :patch,
-            remote: true,
-            class: 'grab-sample',
-            id: "sample-#{sample.id}" %>
-
-<% end %>
-
-</td>
+    <td>
+      <% if @my_samples.include? sample %>
+        (in library)
+      <% else %>
+      <%= link_to 'add to library', 
+          grab_sample_url(sample, :format => :json), 
+          :method => :patch,
+          remote: true,
+          class: 'grab-sample',
+          id: "sample-#{sample.id}" %>
+      <% end %>
+    </td>
   </tr>
-<% end %>
+  <% end %>
 </table>
-
-<br />
-
 

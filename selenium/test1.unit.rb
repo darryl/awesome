@@ -16,12 +16,12 @@ class Test1 < Test::Unit::TestCase
 
     @selenium.start_new_browser_session
   end
-  
+
   def teardown
     @selenium.close_current_browser_session
     assert_equal [], @verification_errors
   end
-  
+
   def test_test1
     @selenium.open "/musicians/sign_in"
     @selenium.click "link=Sign up"
@@ -76,7 +76,7 @@ class Test1 < Test::Unit::TestCase
     rescue Test::Unit::AssertionFailedError
         @verification_errors << $!
     end
-    @selenium.click "link=selenium samples mixes"
+    @selenium.click "link=selenium samples tracks"
     @selenium.wait_for_page_to_load "30000"
     @selenium.type "id=mix_name", "Test Mix"
     assert @selenium.is_text_present("test sample 1")
@@ -90,7 +90,7 @@ class Test1 < Test::Unit::TestCase
     @selenium.click "link=play>"
     @selenium.click "xpath=(//a[contains(text(),'(use)')])[3]"
     @selenium.click "link=play>"
-    @selenium.click "link=selenium samples mixes"
+    @selenium.click "link=selenium samples tracks"
     @selenium.wait_for_page_to_load "30000"
     assert @selenium.is_text_present("test sample 1")
     assert @selenium.is_text_present("test 2")
@@ -106,7 +106,7 @@ class Test1 < Test::Unit::TestCase
     @selenium.click "link=Play - Edit"
     @selenium.wait_for_page_to_load "30000"
     assert @selenium.is_text_present("test 2")
-    @selenium.click "link=selenium samples mixes"
+    @selenium.click "link=selenium samples tracks"
     @selenium.wait_for_page_to_load "30000"
     @selenium.click "link=find samples"
     @selenium.wait_for_page_to_load "30000"

@@ -82,7 +82,7 @@ class ImportagesController < ApplicationController
 
   # make sure the current_musician has the rights to edit this
   def ownership_check(importage)
-     unless importage.library_id.nil? ^ importage.mix_id.nil?
+    unless importage.library_id.nil? ^ importage.mix_id.nil?
       raise 'importage #{importage.id} is orphaned or binding to a sample to a library and a mix'
     end
     # if a mix importage verify mix.musican

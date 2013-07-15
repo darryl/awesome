@@ -1,0 +1,39 @@
+# Features:
+
+-create a new account
+
+-login log-out
+
+-new / delete track
+-add / remove samples to track
+-place samples on time-line
+
+-add a sample to library from the global samples list
+
+-view other people's tracks
+
+-new sample upload
+-add / remove samples to library
+
+-if sample name is blank it is populated
+ with the file name
+
+-user A's tracks are playable by user B
+
+-user B should not be able to edit or create resources belonging to user A. this includes
+-library
+-importage
+-mix
+-musician and devise on musician
+-sample
+
+
+# edge cases
+-pass in large strings to text areas to see what happens. i thnk they should be accepted by not displayed
+
+-uploading large files
+
+-uploading files that aren't audio
+
+-interacting on a different thread while a large up/download is in progress (use ratelimit on localhost to simulate latency to hosted)
+

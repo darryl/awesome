@@ -24,7 +24,7 @@
 <%=    link_to 'sign in', new_musician_session_url    %> 
 <%   end                                         %>
 | <%= link_to 'all tracks', mixes_path %>
-| <%= link_to(:logout, destroy_musician_session_url, method: :delete) if musician_signed_in? %>
+| <%= link_to_if(musician_signed_in?, :logout, destroy_musician_session_url, method: :delete) %>
 </p>
 
 

@@ -1,15 +1,17 @@
 class SamplesController < ApplicationController
-  before_action :set_sample, only: [:show, :edit, :update, :destroy]
+
+  before_action :set_sample, only: [:show, :edit]
+  before_action :set_own_sample, only: [:update, :destroy]
   before_action :authenticate_musician!, :except => [:show]
 
+  # adds this sample to the musician's library
+  # PUT
   def grab
     sample = Sample.find(params[:id])
     unless current_musician.library.samples.include? sample
       current_musician.library.samples << sample
     end
-    flash[:notice] = 'sample added to your library'
     respond_to do |format|
-      format.html { redirect_to action: :show, musician: sample.musician } ###
       format.json {render :json => sample }
     end
   end
@@ -44,7 +46,7 @@ class SamplesController < ApplicationController
     respond_to do |format|
       if @sample.save
         current_musician.library.samples << @sample
-        format.html { redirect_to :action => :index, notice: 'Sample was successfully created.' }
+        format.html { redirect_to :action => :index, notice: 'Sample was added.' }
         format.json { render action: 'show', status: :created, location: @sample }
       else
         format.html { render action: 'new' }
@@ -78,13 +80,17 @@ class SamplesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_sample
-      @sample = current_musician.samples.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_own_sample
+    @sample = current_musician.samples.find(params[:id])
+  end
+  
+  def set_sample
+    @sample = Sample.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def sample_params
-      params.require(:sample).permit(:name, :audio, :desc)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def sample_params
+    params.require(:sample).permit(:name, :audio, :desc)
+  end
 end

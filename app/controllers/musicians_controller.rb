@@ -1,4 +1,6 @@
 class MusiciansController < ApplicationController
+  # this class is not routed to for the time being
+
   before_action :authenticate_musician!, :except => [:index, :show]
 
   # GET /musicians

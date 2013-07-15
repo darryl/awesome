@@ -1,22 +1,15 @@
 <h1>Tracks</h1>
 
 <table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @mixes.each do |mix| %>
+  <% @mixes.each do |mix| %>
   <tr>
     <td><%= mix.name %></td>
     <td>by <%= mix.musician.name %></td>
     <td><%= link_to 'show', "/mixes/#{mix.id}/tracker" %>
       <% if mix.musician.id == current_musician.try(:id) %>
-        (editable)
+      (editable)
       <% end %>
     </td>
   </tr>
-<% end %>
+  <% end %>
 </table>

@@ -4,9 +4,13 @@ class Sample < ActiveRecord::Base
   belongs_to :musician
   has_many :mixes, :through => :importages
   has_many :importages
-  has_many :libraries, :through => :importages ###
+  has_many :libraries, :through => :importages
 
-  def before_create
-  ### if name is nil populate it with the filename
+  before_create :populate_empty_name
+
+  def populate_empty_name
+    if name.blank?
+      self.name = self.audio_file_name
+    end
   end
 end

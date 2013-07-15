@@ -22,9 +22,9 @@ gem 'mysql2'
 
 gem 'jquery-ui-rails'
 
-gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git", branch: 'rails-4'
+gem "paperclip"
 
-gem 'devise', git: 'https://github.com/plataformatec/devise.git', branch: 'rails4'
+gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
@@ -63,7 +63,6 @@ end
 
 # Use unicorn as the app server
 # gem 'unicorn'
-
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]

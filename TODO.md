@@ -26,6 +26,7 @@
   the left px on the importage
 * note to tell people that they can mess with a track that isnt theirs and play
   it but but it wont save
+* add a warning at the top for people using unsupported browsers
 
 # ideas for future development
 * make a "boo" highlight effect (red?) for when an ajax change doesn't go through

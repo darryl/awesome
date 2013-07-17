@@ -1,25 +1,18 @@
 # TODO (loosely in order of likelihood)
 * figure out the login page. I like the awesomely-bad-login-page branch because
-  it think its funny
-  but it will put some people off
+  it think its funny but it will bother some people. probably?
 * README.md needs some love
 * truncate sample, track, and email string fields. they can be huge.
-* importages are getting orphaned when a track is deleted
 * chef needs to add the wav mime type to nginx config
 * clear out all the ###
-* read over all source and tidy it up
-* spellcheck
 * better instructions for new users
-* trim out unused routes or make them only available in development
 * reorganize the root directory structure --the selenium and deployment dirs
   seem out of place
 * I haven't settled on a standard format for the return .json on ajax
 * backups on production
 * it looks like unicorn bombs out sometimes (?)
 * the flow of adding a samples to library from the no-samples tracker message
-  and being redirected back to the user's
-  home/dashboard page is kinda awkward
-* decide on a nomenclature for the users' home page
+  and being redirected back to the user's home/dashboard page is kinda awkward
 * get drag and drop working with selenium so i can test sample positioning. if
   its too big of a PITA I can test
   it by sending the reposition json request, refreshing the page and verifying
@@ -29,7 +22,10 @@
 * add a warning at the top for people using unsupported browsers
 
 # ideas for future development
-* make a "boo" highlight effect (red?) for when an ajax change doesn't go through
+* set the volume level for individual samples in the play queue
+* multi file upload for audio samples
+* make a "boo" highlight effect (red?) for when an ajax change doesn't go through1
+* reject unsupported file types, corrupted files
 * loading bar for download and upload of samples
 * display sample time length
 * get it usable on mobile / ipad

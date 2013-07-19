@@ -13,7 +13,7 @@ var yay = function(selector) {
 }
 
 var removeImportage = function(importageId) {
-  $("[importageId="+importageId+']').hide()
+  $("[importageId="+importageId+']').remove()
 }
 
 var addSample = function(sampleId) {
@@ -21,7 +21,7 @@ var addSample = function(sampleId) {
   var yaySelector = '';
   var importageId;
 
-  $.ajax({ 
+  $.ajax({
     async: false,
     url: '/mixes/' + mixId + '/add_sample.json', 
     dataType: 'json', 

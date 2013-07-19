@@ -1,9 +1,6 @@
-AWESOME: Social Music Tracker
-=============================
+# Awesome Social Music Sequencer
 
-Fun Fact: AWESOME is sorta neat.
+Mess around with it at http://wtfnewyork.com
 
-Mess around with it at wtfnewyork.com
-
-only chrome is supported
-
+I use this as a platform to try out new technologies and techniques
+like Chef, HTML5 and Rails 4.

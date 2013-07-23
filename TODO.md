@@ -26,6 +26,7 @@
 * multi file upload for audio samples
 * make a "boo" highlight effect (red?) for when an ajax change doesn't
   go through
+* transcode audio to a common format
 * reject unsupported file types, corrupted files
 * loading bar for download and upload of samples
 * display sample time length
@@ -38,7 +39,7 @@
 * theme it up with some css. or don't. personally, I like it this way
 * list tracks on the front page so people can listen to them without logging in
 * make tracks displayable as a link or iframe snippet for external
-  linking / sharing / facebook / usenet
+  linking / sharing / facebook
 * user profile page is discoverable to other users and has picture, description, info 
 * let users edit other users tracks and save it as their own fork or draft
   (maybe with a breadcrumb style attribution to the original author)
@@ -46,7 +47,7 @@
 * tests beyond integration tests
 * a mechanism for removing samples
 * a way to download finished tracks as an audio file or old school tracker file
-  or mod or something
+  or mod
 * fix document.ready() so turbolinks won't break everything
 * add some fuzzing to the selenium input
 * server monitoring, error emails, dashboard
@@ -55,7 +56,8 @@
 * save or versioning functionality on tracks
 * ssl https
 * use one of the flash/javascript players that can handle more audio
-  types/streaming/caching and be consistent across browsers
+  types/streaming/caching and be consistent across browsers. howler.js 
+  looks good.
 * testing on production. I would like to be able to run selenium a/
   test.wtfnewyork.com before switching the symlink to current
 * make tracks and samples rename-able

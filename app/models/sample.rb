@@ -1,6 +1,10 @@
 class Sample < ActiveRecord::Base
   has_attached_file :audio
 
+  validates_attachment :audio,
+  :presence => true,
+  :size => { greater_than: 0 }
+
   belongs_to :musician
   has_many :mixes, :through => :importages
   has_many :importages

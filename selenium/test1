@@ -17,11 +17,6 @@
 	<td></td>
 </tr>
 <tr>
-	<td>clickAndWait</td>
-	<td>link=Sign up</td>
-	<td></td>
-</tr>
-<tr>
 	<td>type</td>
 	<td>id=musician_email</td>
 	<td>selenium@s.com</td>
@@ -57,18 +52,23 @@
 	<td></td>
 </tr>
 <tr>
+	<td>verifyValue</td>
+	<td>xpath=(//input[@id='musician_email'])[2]</td>
+	<td></td>
+</tr>
+<tr>
 	<td>type</td>
-	<td>id=musician_email</td>
+	<td>xpath=(//input[@id='musician_email'])[2]</td>
 	<td>selenium@s.com</td>
 </tr>
 <tr>
 	<td>type</td>
-	<td>id=musician_password</td>
+	<td>xpath=(//input[@id='musician_password'])[2]</td>
 	<td>pass</td>
 </tr>
 <tr>
 	<td>clickAndWait</td>
-	<td>name=commit</td>
+	<td>xpath=(//input[@name='commit'])[2]</td>
 	<td></td>
 </tr>
 <tr>

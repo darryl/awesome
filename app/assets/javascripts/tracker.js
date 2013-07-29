@@ -104,7 +104,6 @@ var positionImportage = function (importageId, x){
     data: {'importage[start_time]': time, _method: 'PUT:'},
     // yay on ack
     success: function(result){
-      // alert('lol?');
       // alert('#tracks .sample[importageId=' + importageId + ']');
       yay('#tracks .sample[importageId=' + importageId + ']');
     }

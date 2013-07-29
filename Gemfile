@@ -7,7 +7,6 @@ group :deployment do
   gem 'knife-solo'
   gem 'berkshelf'
   gem 'unicorn'
-  gem 'berkshelf'
   gem 'capistrano'
 end
 

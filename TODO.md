@@ -6,19 +6,17 @@
 * chef needs to add the wav mime type to nginx config
 * clear out all the ### marked trouble spot comments
 * better instructions for new users
-* reorganize the root directory structure --the selenium and deployment dirs
-  seem out of place
 * I haven't settled on a standard format for the return .json on ajax
 * backups on production
-* it looks like unicorn bombs out sometimes (?)
+* it looks like unicorn bombs out sometimes (?) --haven't seen this in
+  a while
 * the flow of adding a samples to library from the no-samples tracker message
   and being redirected back to the user's home/dashboard page is awkward
 * get drag and drop working with selenium so i can test sample positioning. if
-  its too much of a PITA I can test
-  it by sending the reposition json request, refreshing the page and verifying
-  the left px on the importage
+  its too much trouble I can test it by sending the reposition json
+  request, refreshing the page and verifying the left px on the importage
 * note to tell people that they can mess with another user's track and play
-  it but but it wont save
+  it but it wont save
 * add a warning at the top for people using unsupported browsers
 
 # ideas for future development
@@ -36,11 +34,14 @@
 * if there are ever a lot of samples, would want a way to filter them
   (eg by tag or most popular)
 * a sweet logo
-* theme it up with some css. or don't. personally, I like it this way
+* theme it up with some css. or don't. personally, I like Spartan
+  design and its a good illustration of where back-end web development
+  stops vis-a-vis front-end development
 * list tracks on the front page so people can listen to them without logging in
 * make tracks displayable as a link or iframe snippet for external
   linking / sharing / facebook
-* user profile page is discoverable to other users and has picture, description, info 
+* user profile page is discoverable to other users and has picture,
+  description, info 
 * let users edit other users tracks and save it as their own fork or draft
   (maybe with a breadcrumb style attribution to the original author)
 * port tracker.js to coffee-script

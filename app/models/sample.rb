@@ -6,9 +6,9 @@ class Sample < ActiveRecord::Base
   :size => { greater_than: 0 }
 
   belongs_to :musician
-  has_many :mixes, :through => :importages
-  has_many :importages
-  has_many :libraries, :through => :importages
+  has_many :mixes, through: :importages
+  has_many :importages, dependent: :destroy
+  has_many :libraries, through: :importages
 
   before_create :populate_empty_name
 

@@ -1,0 +1,5 @@
+#!/bin/bash 
+
+cd /home/apps/awesome/current/ &&
+sudo su -c '. /etc/profile.d/rbenv.sh && RAILS_ENV=production bin/rails c ' apps
+

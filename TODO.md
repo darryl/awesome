@@ -1,12 +1,9 @@
 # TODO (loosely in order of likelihood)
-* figure out the login page. I like the awesomely-bad-login-page branch because
-  I think its funny but it will bother some people. probably?
-* README.md needs some love
 * truncate sample, track, and email string fields. they can be huge.
 * chef needs to add the wav mime type to nginx config
 * clear out all the ### marked trouble spot comments
 * better instructions for new users
-* I haven't settled on a standard format for the return .json on ajax
+* I haven't settled on a standard format for the return .json on ajax. 
 * backups on production
 * it looks like unicorn bombs out sometimes (?) --haven't seen this in
   a while

@@ -22,29 +22,24 @@ class ImportagesController < ApplicationController
   def edit
   end
 
-  # POST /importages
   # POST /importages.json
   def create
     @importage = Importage.new(importage_params)
 
     respond_to do |format|
       if ownership_check(@importage) && @importage.save
-        format.html { redirect_to @importage, notice: 'Importage was successfully created.' }
         format.json { render action: 'show', status: :created, location: @importage }
       else
-        format.html { render action: 'new' }
         format.json { render json: @importage.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /importages/1
   # PATCH/PUT /importages/1.json
   def update
 
     respond_to do |format|
       if ownership_check(@importage) && @importage.update(importage_params)
-        format.html { redirect_to @importage, notice: 'Importage was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -53,13 +48,11 @@ class ImportagesController < ApplicationController
     end
   end
 
-  # DELETE /importages/1
   # DELETE /importages/1.json
   def destroy
     if ownership_check(@importage)
       eximportage = @importage.destroy
       respond_to do |format|
-        format.html { redirect_to importages_url }
         format.json { render :text => "{\"deleted\": #{eximportage.id}}" }
       end
     else
@@ -83,7 +76,7 @@ class ImportagesController < ApplicationController
   # make sure the current_musician has the rights to edit this
   def ownership_check(importage)
     unless importage.library_id.nil? ^ importage.mix_id.nil?
-      raise 'importage #{importage.id} is orphaned or binding to a sample to a library and a mix'
+      raise 'importage #{importage.id} is orphaned or binding a sample to a library and a mix'
     end
     # if a mix importage verify mix.musican
     if importage.mix_id && (importage.mix.musician_id == current_musician.id)

@@ -35,7 +35,7 @@ by <%= @mix.musician.name %>
     <% @tracks.each{|track| %>
     <div class="track" sampleId="<%= track.id %>">
 
-      <% Importage.find(:all, :conditions => {sample_id: track.id, mix_id: @mix.id}).each {|importage| %>
+      <% Importage.all.where({sample_id: track.id, mix_id: @mix.id}).each {|importage| %>
       <div class="sample ui-widget-content"
            sampleId="<%= track.id %>"
            importageId="<%=importage.id%>"

@@ -1,5 +1,11 @@
 source 'https://rubygems.org'
 
+group :test do
+  gem 'capybara'
+  gem 'guard-rspec'
+  gem 'launchy'
+end
+
 gem 'pry-rails', group: :development
 
 # Deployment:
@@ -10,12 +16,16 @@ group :deployment do
   gem 'capistrano'
 end
 
-group :test do
+group :test, :development do
   gem 'selenium-client'
   gem 'selenium-webdriver'
+  gem 'rspec-rails'
+  gem 'factory_girl_rails'
 end
 
 gem 'faker'
+
+gem 'fabrication'
 
 gem 'mysql2'
 
@@ -26,7 +36,7 @@ gem "paperclip"
 gem 'devise'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '~> 4.1.0'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -35,7 +45,7 @@ gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
+gem 'uglifier'
 
 # Use CoffeeScript for .js.coffee assets and views
 gem 'coffee-rails', '~> 4.0.0'
@@ -50,7 +60,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.0.1'
+gem 'jbuilder'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

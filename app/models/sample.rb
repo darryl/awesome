@@ -5,6 +5,9 @@ class Sample < ActiveRecord::Base
   :presence => true,
   :size => { greater_than: 0 }
 
+  # supported codecs across different browsers still in a state of flux
+  do_not_validate_attachment_file_type :audio
+
   belongs_to :musician
   has_many :mixes, through: :importages
   has_many :importages, dependent: :destroy

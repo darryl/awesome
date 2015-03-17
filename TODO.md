@@ -56,7 +56,5 @@
 * use one of the flash/javascript players that can handle more audio
   types/streaming/caching and be consistent across browsers. howler.js 
   looks good.
-* testing on production. I would like to be able to run selenium a/
-  test.wtfnewyork.com before switching the symlink to current
 * make tracks and samples rename-able
 * some unit tests on importage. importage handling is kinda complicated

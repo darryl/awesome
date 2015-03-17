@@ -1,7 +1,5 @@
 # Awesome Social Music Sequencer
 
-Mess around with it at http://wtfnewyork.com
-
 Only chrome and firefox are supported.
 
 Basically, you upload audio sample wav files (or whatever else your
